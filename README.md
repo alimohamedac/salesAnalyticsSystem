@@ -25,7 +25,7 @@ A Laravel 10 project built to manage and analyze sales data in **real-time**, wi
 1. **AI Prompt Design & Endpoint Logic** – `/recommendations`  
    ChatGPT helped design the structure of prompts sent to the AI model using real sales data.
    
-2. **OpenWeather Integration Strategy** – `/weather-pricing` logic  
+2. **OpenWeather Integration Strategy** – `/weather-recommendations` logic  
    The AI was consulted on how to combine weather conditions with product categories.
 
 > All code from AI was reviewed and rewritten/refactored manually where needed.
@@ -36,7 +36,6 @@ A Laravel 10 project built to manage and analyze sales data in **real-time**, wi
 
 - **All database operations** use raw SQL via Laravel’s DB facade and SQLite.
 - **Real-time functionality** implemented using WebSockets without Laravel Echo.
-- **Frontend uses vanilla JS** and WebSocket for live updates.
 - **Analytics calculations** done manually from SQL queries.
 
 ---
