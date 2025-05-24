@@ -4,7 +4,7 @@ A Laravel 10 project built to manage and analyze sales data in **real-time**, wi
 
 ---
 
-## 📌 Features
+## Features
 
 - Add new orders via API
 - View real-time analytics:
@@ -18,7 +18,7 @@ A Laravel 10 project built to manage and analyze sales data in **real-time**, wi
 
 ---
 
-## 🤖 AI-Assisted Parts (30%)
+## AI-Assisted Parts (30%)
 
 > The following parts were **assisted by ChatGPT**, but integrated manually:
 
@@ -32,7 +32,7 @@ A Laravel 10 project built to manage and analyze sales data in **real-time**, wi
 
 ---
 
-## 🛠 Manual Implementation Details (70%)
+## Manual Implementation Details (70%)
 
 - **All database operations** use raw SQL via Laravel’s DB facade and SQLite.
 - **Real-time functionality** implemented using WebSockets without Laravel Echo.
@@ -41,7 +41,7 @@ A Laravel 10 project built to manage and analyze sales data in **real-time**, wi
 
 ---
 
-## 🧪 How to Run the Project
+## How to Run the Project
 
 ### 1. Clone the repository
 
