@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\OrderRepository;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class OrderService
 {
@@ -45,8 +46,10 @@ class OrderService
     public function getRecommendations()
     {
         $recentSales = $this->orderRepository->getRecentOrders(60); // Last hour
-        $response = Http::post('https://api.openai.com/v1/chat/completions', [
-            'model' => 'gpt-3.5-turbo',
+
+        $response = Http::withToken(env('OPENAI_API_KEY'))->post(
+            'https://api.openai.com/v1/chat/completions', [
+            'model' => 'gpt-4',
             'messages' => [
                 [
                     'role' => 'system',
@@ -55,6 +58,11 @@ class OrderService
             ]
         ]);
 
+        if ($response->failed()) {
+            Log::error('Weather API failed: ' . $response->body());
+            return 'Default promotion: no data';
+        }
+
         return $response->json();
     }
 
@@ -62,7 +70,7 @@ class OrderService
     {
         $weather = Http::get('https://api.openweathermap.org/data/2.5/weather', [
             'q' => $city,
-            'appid' => config('services.openweather.key'),
+            'appid' => env('OPENWEATHER_API_KEY'),
             'units' => 'metric'
         ]);
 
